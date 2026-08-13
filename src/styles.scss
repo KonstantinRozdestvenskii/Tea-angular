@@ -1,1 +1,91 @@
 /* You can add global styles to this file, and also import other style files */
+.slider-part {
+  height: 640px;
+  box-sizing: border-box;
+}
+
+.hero-slider .slider-part--1 {
+  background-image: url('assets/images/background1.png');
+  background-size: cover;
+}
+
+.hero-slider .slider-part--2 {
+  background-image: url('assets/images/background2.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 90% 50%;
+}
+
+.hero-slider .slider-part--3 {
+  background-image: url('assets/images/background3.png');
+  background-size: cover;
+}
+
+/* ============================================
+   Кастомные стрелки слайдера
+   ============================================ */
+
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.hero-arrow--prev {
+  left: 15px;
+  background-image: url("assets/images/arrow_prev.png");
+}
+
+.hero-arrow--next {
+  right: 15px;
+  background-image: url("assets/images/arrow_next.png");
+}
+
+/* ============================================
+   Bootstrap Accordion
+   ============================================ */
+
+.faq-accordion .accordion-item {
+  border: 0;
+  background-color: transparent;
+  margin-bottom: 8px;
+}
+
+.faq-accordion .accordion-button {
+  position: relative;
+  padding-right: 50px;
+}
+
+.faq-accordion .accordion-button::after {
+  content: '';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-image: url('assets/images/accerdion-disablead.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.2s ease;
+}
+
+.faq-accordion .accordion-button:not(.collapsed)::after {
+  background-image: url('assets/images/accardion-active.png');
+  transform: translateY(-50%);
+}
+
+.faq-accordion .accordion-button:focus {
+  box-shadow: none;
+}
+
+.faq-accordion .accordion-body p {
+  margin-bottom: 0;
+}
