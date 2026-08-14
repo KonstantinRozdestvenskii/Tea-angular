@@ -1,60 +1,152 @@
 <!-- Форма заказа -->
 <div class="container py-5" id="form">
-  <h2 class="text-center">Сделать заказ</h2>
+  <h2 class="text-center" >Сделать заказ</h2>
 
-  <div class="row justify-content-center pb-3">
-    <div class="col-xl-2 col-lg-4 col-sm-6 col-12">
-      <div>
-        <label for="name" class="form-label">Имя</label>
-        <input type="text" class="form-control" id="name">
+  <form *ngIf="showForm" [formGroup]="orderForm">
+    <div class="row justify-content-center pb-3">
+      <div class="col-xl-2 col-lg-4 col-sm-6 col-12">
+        <div>
+          <label for="name" class="form-label">Имя</label>
+          <input type="text" class="form-control" id="name"
+                 formControlName="firstName"
+          >
+          <div *ngIf="orderForm.get('firstName')?.invalid
+              && (orderForm.get('firstName')?.touched || orderForm.get('firstName')?.dirty)">
+            <div class="invalid-feedback" *ngIf="orderForm.get('firstName')?.errors?.['required']">
+              Введите имя!
+            </div>
+            <div class="invalid-feedback" *ngIf="orderForm.get('firstName')?.errors?.['pattern']">
+              Некорректное имя!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-2 col-lg-4 col-sm-6 col-12">
+        <div>
+          <label for="lastName" class="form-label">Фамилия</label>
+          <input type="text" class="form-control" id="lastName"
+                 formControlName="lastName"
+          >
+          <div *ngIf="orderForm.get('lastName')?.invalid
+              && (orderForm.get('lastName')?.touched || orderForm.get('lastName')?.dirty)">
+            <div class="invalid-feedback" *ngIf="orderForm.get('lastName')?.errors?.['required']">
+              Введите фамилию!
+            </div>
+            <div class="invalid-feedback" *ngIf="orderForm.get('lastName')?.errors?.['pattern']">
+              Некорректная фамилия!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-2 col-lg-4 col-12">
+        <div>
+          <label for="phoneNumber" class="form-label">Телефон</label>
+          <input type="text" class="form-control" id="phoneNumber"
+                 formControlName="phoneNumber"
+          >
+          <div *ngIf="orderForm.get('phoneNumber')?.invalid
+              && (orderForm.get('phoneNumber')?.touched || orderForm.get('phoneNumber')?.dirty)">
+            <div class="invalid-feedback" *ngIf="orderForm.get('phoneNumber')?.errors?.['required']">
+              Введите номер телефона!
+            </div>
+            <div class="invalid-feedback" *ngIf="orderForm.get('phoneNumber')?.errors?.['pattern']">
+              Номер телефона может содержать только цифры и знак "+"!
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="col-xl-2 col-lg-4 col-sm-6 col-12">
-      <div>
-        <label for="surname" class="form-label">Фамилия</label>
-        <input type="text" class="form-control" id="surname">
+    <div class="row justify-content-center pb-3">
+      <div class="col-xl-3 col-lg-6 col-12">
+        <div>
+          <label for="country" class="form-label">Страна</label>
+          <input type="text" class="form-control" id="country"
+                 formControlName="country">
+          <div *ngIf="orderForm.get('country')?.invalid
+              && (orderForm.get('country')?.touched || orderForm.get('country')?.dirty)">
+            <div class="invalid-feedback" *ngIf="orderForm.get('country')?.errors?.['required']">
+              Введите страну!
+            </div>
+            <div class="invalid-feedback" *ngIf="orderForm.get('country')?.errors?.['pattern']">
+              Название страны должно содержать только буквы
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-lg-6 col-12">
+        <div>
+          <label for="index" class="form-label">Индекс</label>
+          <input type="text" class="form-control" id="index"
+                 formControlName="index"
+          >
+          <div *ngIf="orderForm.get('index')?.invalid
+              && (orderForm.get('index')?.touched || orderForm.get('index')?.dirty)">
+            <div class="invalid-feedback" *ngIf="orderForm.get('index')?.errors?.['required']">
+              Введите индекс!
+            </div>
+            <div class="invalid-feedback" *ngIf="orderForm.get('index')?.errors?.['pattern']">
+              Индекс должен содержать только цифры
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="col-xl-2 col-lg-4 col-12">
-      <div>
-        <label for="phone" class="form-label">Телефон</label>
-        <input type="text" class="form-control" id="phone">
+    <div class="row justify-content-center pb-3">
+      <div class="col-xl-6 col-12">
+        <div>
+          <label for="address" class="form-label">Адрес</label>
+          <input type="text" class="form-control" id="address"
+                 formControlName="address"
+          >
+          <div *ngIf="orderForm.get('address')?.invalid
+              && (orderForm.get('address')?.touched || orderForm.get('address')?.dirty)">
+            <div class="invalid-feedback" *ngIf="orderForm.get('address')?.errors?.['required']">
+              Введите адрес
+            </div>
+            <div class="invalid-feedback" *ngIf="orderForm.get('address')?.errors?.['pattern']">
+              Некорректный адрес
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="row justify-content-center pb-3">
-    <div class="col-xl-3 col-lg-6 col-12">
-      <div>
-        <label for="country" class="form-label">Страна</label>
-        <input type="text" class="form-control" id="country">
+    <div class="row justify-content-center pb-3">
+      <div class="col-xl-6 col-12">
+        <div>
+          <label for="product" class="form-label">Товар</label>
+          <input type="text" class="form-control" id="product"
+                 formControlName="product"
+          >
+        </div>
       </div>
     </div>
 
-    <div class="col-xl-3 col-lg-6 col-12">
-      <div>
-        <label for="index" class="form-label">Индекс</label>
-        <input type="text" class="form-control" id="index">
+    <div class="row justify-content-center pb-3">
+      <div class="col-xl-6 col-12">
+        <div>
+          <label for="comment" class="form-label">Комментарий к заказу</label>
+          <textarea class="form-control" id="comment" formControlName="comment"></textarea>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="row justify-content-center pb-3">
-    <div class="col-xl-6 col-12">
-      <div>
-        <label for="addres" class="form-label">Адрес</label>
-        <input type="text" class="form-control" id="addres">
+    <div class="row justify-content-center">
+      <div class="col-xl-6 col-12">
+        <button href="#" class="btn btn-primary hvr-pulse-grow" id="form-btn" [disabled]="isBtnDisabled || orderForm.invalid" (click)="createOrder()">
+          Отправить
+        </button>
+        <div *ngIf="isOrderError">
+          Произошла ошибка. Попробуйте еще раз.
+        </div>
       </div>
     </div>
-  </div>
+  </form>
 
-  <div class="row justify-content-center">
-    <div class="col-xl-6 col-12">
-      <a href="#" class="btn btn-primary hvr-pulse-grow" id="form-btn">
-        Отправить
-      </a>
-    </div>
-  </div>
+  <div class="h1 text-center hv-100 my-5 py-5" *ngIf="!showForm">Спасибо за заказ!</div>
 </div>

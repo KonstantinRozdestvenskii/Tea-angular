@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import type { SwiperOptions } from 'swiper/types';
+import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-main',
@@ -12,9 +13,37 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     destroy(deleteInstance?: boolean, cleanStyles?: boolean): void;
   } | null = null;
 
-  constructor() { }
+  constructor() {
+    this.isPopupShow$ = new Observable<boolean>(observer => {
+      const timeout = setTimeout(() => {
+        observer.next(true);
+      }, 10000);
+
+      return {
+        unsubscribe() {
+          clearTimeout(timeout);
+        }
+      }
+    })
+  }
+
+  public isPopupShow: boolean = false;
+  private isPopupShow$: Observable<boolean>;
+
+  closePopup() {
+    this.isPopupShow = false;
+  }
+
+  private subscription: Subscription | null = null;
 
   ngOnInit(): void {
+
+    this.subscription = this.isPopupShow$.subscribe({
+      next: (param) => {
+        this.isPopupShow = param;
+      }
+    })
+
   }
 
   ngAfterViewInit(): void {
@@ -26,6 +55,8 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
       this.swiper.destroy(true, true);
       this.swiper = null;
     }
+
+    this.subscription?.unsubscribe()
   }
 
 

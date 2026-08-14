@@ -4,5 +4,6 @@
   <p class="mb-3">
     {{ product.description }}
   </p>
-  <a class="btn btn-primary mx-auto hvr-grow w-25" [routerLink]="['/order']" [queryParams]="{product: product.title}">Заказать</a>
+  <p class="mb-3">Цена: {{ product.price }} руб.</p>
+  <a class="btn btn-primary mx-auto hvr-grow w-25" [routerLink]="['/order']" [queryParams]="{product: product.title}">Купить</a>
 </div>
