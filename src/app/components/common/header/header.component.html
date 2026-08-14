@@ -32,10 +32,20 @@
             type="search"
             placeholder="Поиск чая"
             aria-label="Search"
+            [(ngModel)]="searchQuery"
+            name="searchQuery"
           >
 
-          <button class="btn btn-outline-primary hvr-shutter-in-horizontal" type="button">
+          <button class="btn btn-outline-primary hvr-shutter-in-horizontal" type="submit" (click)="onSearch()">
             Найти
+          </button>
+
+          <button
+            *ngIf="searchQuery"
+            class="btn btn-outline-danger ms-2"
+            type="button"
+            (click)="onReset()">
+            Сбросить
           </button>
         </form>
       </div>

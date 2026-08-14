@@ -10,7 +10,7 @@ import { ProductsComponent } from './components/pages/products/products.componen
 import { ProductComponent } from './components/pages/product/product.component';
 import { OrderComponent } from './components/pages/order/order.component';
 import { ProductCardComponent } from './components/common/product-card/product-card.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {ProductService} from "./services/product.service";
 import { SliceTextPipe } from './pipes/slice-text.pipe';
@@ -31,7 +31,8 @@ import { SliceTextPipe } from './pipes/slice-text.pipe';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     ProductService
