@@ -1,19 +1,6 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import type { SwiperOptions } from 'swiper/types';
 
-// Глобальный объект Swiper приходит из массива scripts в angular.json
-declare const Swiper: new (
-  selector: string | HTMLElement,
-  options?: SwiperOptions
-) => {
-  destroy(deleteInstance?: boolean, cleanStyles?: boolean): void;
-};
-
-// Глобальный конструктор WOW приходит из массива scripts в angular.json
-declare const WOW: new (options?: { animateClass?: string }) => {
-  init(): void;
-};
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -29,7 +16,6 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.initHeroSlider();
     this.initOrderForm();
-    this.initWow();
   }
 
   ngOnDestroy(): void {
@@ -76,20 +62,6 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     };
 
     this.swiper = new Swiper(sliderElement, config);
-  }
-
-  // ===== Анимации при скролле (WOW.js + animate.css) =====
-  private initWow(): void {
-    if (typeof WOW === 'undefined') {
-      console.error(
-        'WOW JS не загружен. Проверь подключение wow.min.js в angular.json'
-      );
-      return;
-    }
-
-    new WOW({
-      animateClass: 'animate__animated'
-    }).init();
   }
 
   // ===== Форма заказа =====

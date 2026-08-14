@@ -31,13 +31,11 @@
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/swiper/swiper-bundle.min.css",
-              "node_modules/animate.css/animate.min.css",
               "node_modules/hover.css/css/hover-min.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "node_modules/swiper/swiper-bundle.min.js",
-              "node_modules/wowjs/dist/wow.min.js"
             ]
           },
           "configurations": {
