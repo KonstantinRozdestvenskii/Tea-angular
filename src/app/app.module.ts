@@ -9,6 +9,11 @@ import { MainComponent } from './components/pages/main/main.component';
 import { ProductsComponent } from './components/pages/products/products.component';
 import { ProductComponent } from './components/pages/product/product.component';
 import { OrderComponent } from './components/pages/order/order.component';
+import { ProductCardComponent } from './components/common/product-card/product-card.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {ProductService} from "./services/product.service";
+import { SliceTextPipe } from './pipes/slice-text.pipe';
 
 @NgModule({
   declarations: [
@@ -18,13 +23,19 @@ import { OrderComponent } from './components/pages/order/order.component';
     MainComponent,
     ProductsComponent,
     ProductComponent,
-    OrderComponent
+    OrderComponent,
+    ProductCardComponent,
+    SliceTextPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ProductService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

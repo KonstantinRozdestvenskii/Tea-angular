@@ -18,19 +18,11 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Главная</a>
+            <a class="nav-link" [routerLink]="'/'" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Главная</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Преимущества</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">Цены</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">Контакты</a>
+            <a class="nav-link" [routerLink]="'/products'" routerLinkActive="active">Каталог</a>
           </li>
         </ul>
 

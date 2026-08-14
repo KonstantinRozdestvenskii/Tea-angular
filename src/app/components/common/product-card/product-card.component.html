@@ -1,0 +1,14 @@
+<!-- Карточка -->
+<div>
+  <div class="card mx-auto" style="max-width: 26rem;">
+    <img src="{{ product.image }}" class="card-img-top" alt="Чай">
+
+    <div class="card-body">
+      <h5 class="card-title">{{ product.title}}</h5>
+      <p class="card-text">
+        {{ product.description | sliceText}}
+      </p>
+      <a class="btn btn-primary hvr-grow" [routerLink]="['/products', product.id]" ]>Подробнее</a>
+    </div>
+  </div>
+</div>

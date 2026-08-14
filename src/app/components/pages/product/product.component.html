@@ -1,1 +1,8 @@
-<p>product works!</p>
+<div class="container-fluid d-flex flex-column align-items-center text-center mx-auto" style="max-width: 1000px">
+  <img src="{{ product.image }}" class="mb-3" style="max-width: 400px" alt="Чай">
+  <h1 class="mb-3 ">{{ product.title }}</h1>
+  <p class="mb-3">
+    {{ product.description }}
+  </p>
+  <a class="btn btn-primary mx-auto hvr-grow w-25" [routerLink]="['/order']" [queryParams]="{product: product.title}">Заказать</a>
+</div>
