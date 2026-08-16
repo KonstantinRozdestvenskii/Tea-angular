@@ -26,10 +26,11 @@ import { LayoutComponent } from './views/layout.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbCollapseModule
+    NgbCollapseModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
