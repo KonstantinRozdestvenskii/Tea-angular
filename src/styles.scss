@@ -1,4 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+/* ============================================
+   Слайдер (Swiper)
+   ============================================ */
+
 .slider-part {
   height: 640px;
   box-sizing: border-box;
@@ -21,9 +27,7 @@
   background-size: cover;
 }
 
-/* ============================================
-   Кастомные стрелки слайдера
-   ============================================ */
+/* Кастомные стрелки слайдера */
 
 .hero-arrow {
   position: absolute;
@@ -40,16 +44,16 @@
 
 .hero-arrow--prev {
   left: 15px;
-  background-image: url("assets/images/arrow_prev.png");
+  background-image: url('assets/images/arrow_prev.png');
 }
 
 .hero-arrow--next {
   right: 15px;
-  background-image: url("assets/images/arrow_next.png");
+  background-image: url('assets/images/arrow_next.png');
 }
 
 /* ============================================
-   Bootstrap Accordion
+   Аккордеон (ng-bootstrap: ngb-accordion / ngb-panel)
    ============================================ */
 
 .faq-accordion .accordion-item {
@@ -58,11 +62,36 @@
   margin-bottom: 8px;
 }
 
+/*
+  Стилизация шапки.
+  В старом API ng-bootstrap утилиты (bg-primary, text-white и т.д.)
+  нельзя повесить на кнопку — она генерируется внутри компонента,
+  поэтому воспроизводим их здесь через CSS.
+*/
 .faq-accordion .accordion-button {
   position: relative;
-  padding-right: 50px;
+  padding: 1rem 50px 1rem 1rem;          /* p-3 + место под стрелку */
+  font-weight: 700;                      /* fw-bold */
+  color: #fff;                           /* text-white */
+  background-color: var(--bs-primary);   /* bg-primary */
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0)); /* bg-gradient */
+  border: 2px solid var(--bs-primary);   /* border border-primary border-2 */
+  border-radius: .375rem;                /* rounded */
 }
 
+/* Открытое состояние — не даём Bootstrap перекрасить шапку */
+.faq-accordion .accordion-button:not(.collapsed) {
+  color: #fff;
+  background-color: var(--bs-primary);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
+  box-shadow: none;
+}
+
+.faq-accordion .accordion-button:focus {
+  box-shadow: none;
+}
+
+/* Кастомные стрелки аккордеона */
 .faq-accordion .accordion-button::after {
   content: '';
   position: absolute;
@@ -82,10 +111,14 @@
   transform: translateY(-50%);
 }
 
-.faq-accordion .accordion-button:focus {
-  box-shadow: none;
+.faq-accordion .accordion-body {
+  border: 0;
 }
 
 .faq-accordion .accordion-body p {
   margin-bottom: 0;
 }
+
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

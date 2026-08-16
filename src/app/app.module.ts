@@ -3,40 +3,35 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/common/header/header.component';
-import { FooterComponent } from './components/common/footer/footer.component';
-import { MainComponent } from './components/pages/main/main.component';
-import { ProductsComponent } from './components/pages/products/products.component';
-import { ProductComponent } from './components/pages/product/product.component';
-import { OrderComponent } from './components/pages/order/order.component';
-import { ProductCardComponent } from './components/common/product-card/product-card.component';
+import { HeaderComponent } from './shared/layout/header/header.component';
+import { FooterComponent } from './shared/layout/footer/footer.component';
+import { MainComponent } from './views/main/main.component';
+import { ProductsComponent } from './views/products/products/products.component';
+import { ProductComponent } from './views/products/product/product.component';
+import { OrderComponent } from './views/order/order.component';
+import { ProductCardComponent } from './views/products/product-card/product-card.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {ProductService} from "./services/product.service";
-import { SliceTextPipe } from './pipes/slice-text.pipe';
+import {ProductService} from "./shared/services/product.service";
+import { SliceTextPipe } from './shared/pipes/slice-text.pipe';
+import {NgbCollapseModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { LayoutComponent } from './views/layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    MainComponent,
-    ProductsComponent,
-    ProductComponent,
-    OrderComponent,
-    ProductCardComponent,
-    SliceTextPipe
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbCollapseModule
   ],
-  providers: [
-    ProductService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

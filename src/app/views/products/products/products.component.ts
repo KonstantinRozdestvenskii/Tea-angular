@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductService } from "../../../shared/services/product.service";
 import { Router } from "@angular/router";
-import { ProductType } from "../../../types/product.type";
+import { ProductType } from "../../../../types/product.type";
 import { Subscription } from "rxjs";
 import { SearchService } from "../../../shared/services/search.service";
 
