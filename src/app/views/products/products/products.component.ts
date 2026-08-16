@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ProductService } from "../../../services/product.service";
+import { ProductService } from "../../../shared/services/product.service";
 import { Router } from "@angular/router";
 import { ProductType } from "../../../types/product.type";
 import { Subscription } from "rxjs";
-import { SearchService } from "../../../services/search.service";
+import { SearchService } from "../../../shared/services/search.service";
 
 @Component({
   selector: 'app-products',

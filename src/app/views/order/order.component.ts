@@ -3,8 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Subscription, tap} from "rxjs";
-import {OrderType} from "../../../types/order.type";
-import {OrderService} from "../../../services/order.service";
+import {OrderType} from "../../types/order.type";
+import {OrderService} from "../../shared/services/order.service";
 
 @Component({
   selector: 'app-order',

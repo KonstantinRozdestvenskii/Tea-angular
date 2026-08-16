@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import {SearchService} from "../../../services/search.service";
+import {SearchService} from "../services/search.service";
 
 @Component({
   selector: 'app-header',
@@ -11,6 +11,7 @@ import {SearchService} from "../../../services/search.service";
 export class HeaderComponent implements OnInit, OnDestroy {
   public searchQuery: string = '';
   private subscription: Subscription | null = null;
+  public isMenuCollapsed: boolean = true;
 
   constructor(
     private router: Router,
@@ -42,5 +43,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.navigate(['/products']).then(() => {
       this.searchService.setSearchQuery('');
     });
+  }
+
+  public collapseMenu() {
+    this.isMenuCollapsed = !this.isMenuCollapsed;
   }
 }

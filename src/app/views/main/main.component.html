@@ -1,0 +1,105 @@
+<!-- Слайдер -->
+<div class="container py-5 my-4">
+  <div class="row justify-content-center">
+    <div class="col-auto">
+
+      <div class="hero-slider swiper">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="slider-part slider-part--1 d-flex align-items-center ps-4">
+              <div class="ms-5 ps-5">
+                <h1 class="pb-5 mb-4">Скидки на травянные чаи</h1>
+                <p class="pb-5 mb-4">Узнай все подробности, заполнив заявку</p>
+                <a [routerLink]="['/order']" type="button" class="btn btn-primary hvr-pulse">
+                  Заполнить
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slider-part slider-part--2 d-flex align-items-center ps-4">
+              <div class="ms-5 ps-5" style="max-width: 525px">
+                <h1 class="pb-5 mb-4">Закажи три пачки чая и получи подарок</h1>
+                <a [routerLink]="['/order']" class="btn btn-primary mb-5 hvr-pulse">
+                  Заказать
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slider-part slider-part--3 d-flex align-items-center ps-4">
+              <div class="ms-5 ps-5">
+                <h1 class="pb-5 mb-4">Попробуй нашу новинку — ягодный чай</h1>
+                <a [routerLink]="['/order']" class="btn btn-primary mb-5 hvr-pulse">
+                  Заказать
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Кастомные стрелки (вместо стандартных swiper-button-*) -->
+        <div class="hero-arrow hero-arrow--prev"></div>
+        <div class="hero-arrow hero-arrow--next"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FAQ / Аккордеон -->
+<div class="container pt-5 pb-4">
+  <h2 class="text-center">Ответы на часто задаваемые вопросы</h2>
+
+  <!-- [closeOthers]="true" — открыта только одна секция.
+       activeIds НЕ указываем — значит, изначально все секции закрыты
+       (аналог твоего старого active: false в jQuery UI) -->
+  <ngb-accordion [closeOthers]="true" class="faq-accordion mt-5">
+
+    <ngb-panel id="faq-1" title="Собираете ли вы подарочные боксы?">
+      <ng-template ngbPanelContent>
+        <p>Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!</p>
+      </ng-template>
+    </ngb-panel>
+
+    <ngb-panel id="faq-2" title="Сколько у вас разновидностей чая?">
+      <ng-template ngbPanelContent>
+        <p>Все разновидности представлены на сайте в разделе "Наши чайные коллекции"</p>
+      </ng-template>
+    </ngb-panel>
+
+    <ngb-panel id="faq-3" title="В какой срок осуществляется доставка?">
+      <ng-template ngbPanelContent>
+        <p>5-6 дней</p>
+      </ng-template>
+    </ngb-panel>
+
+    <ngb-panel id="faq-4" title="У вас обновляется ассортимент?">
+      <ng-template ngbPanelContent>
+        <p>Да, раз в полгода</p>
+      </ng-template>
+    </ngb-panel>
+
+    <ngb-panel id="faq-5" title="Какого объема у вас пачки чая?">
+      <ng-template ngbPanelContent>
+        <p>Каждая пачка объёмом 30 грамм</p>
+      </ng-template>
+    </ngb-panel>
+
+  </ngb-accordion>
+</div>
+
+
+<ng-template #popup let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Посмотрите наши чайные коллекции</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-footer">
+    <a [routerLink]="['/products']" class="btn btn-primary">Смотреть</a>
+  </div>
+</ng-template>
