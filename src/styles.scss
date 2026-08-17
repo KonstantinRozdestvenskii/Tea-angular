@@ -1,6 +1,25 @@
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 
+body, html {
+  height: 100%;
+}
+
+app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+app-footer {
+  flex: 0 0 auto;
+}
+
+router-outlet + *:not(app-footer) {
+  flex: 1 0 auto;
+}
+
+
 /* ============================================
    Слайдер (Swiper)
    ============================================ */
